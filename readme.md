@@ -1,282 +1,352 @@
-# SmartTransit - Intelligent Bus Journey Planner
+# 🚌 SmartTransit — Intelligent Bus Journey Planner
 
-A comprehensive Final Year Project implementing advanced graph algorithms and data structures for optimal transit route planning.
+> A **Data Structures & Algorithms semester project** built with **C++ (backend)** and **Vanilla JavaScript (frontend)** that demonstrates real-world applications of graph algorithms and data structures for optimal transit route planning.
 
-## 🚀 Features
+<img width="1364" height="723" alt="image" src="https://github.com/user-attachments/assets/511b7d65-d390-449e-b9b1-d636f159f514" />
 
-### Core Functionality
-- **Smart Route Planning** - Multiple pathfinding algorithms
-  - Shortest Distance (Dijkstra's Algorithm)
-  - Lowest Fare (Dijkstra's Algorithm - Fare Optimized)
-  - Quick Pathfinding (Depth-First Search)
-  
-- **Route Comparison** - Compare all available routes side-by-side
-- **Interactive Map** - Visual network representation using Leaflet.js
-- **Recent Searches** - Quick access to previous routes
-- **Saved Routes** - Save favorite journeys for later
-- **Dark/Light Mode** - Comfortable viewing in any lighting
-- **Fully Responsive** - Works on all devices (desktop, tablet, mobile)
+---
 
-### Network Management
-- Add new bus stops
-- Create route connections
-- Real-time network statistics
-- Network graph visualization
-- Search functionality
+## 📸 Screenshots
 
-### Data Structures Used
-- **Graph (Adjacency List)** - Efficient representation of transit network
-- **Priority Queue (Min-Heap)** - For Dijkstra's algorithm optimization
-- **Hash Map (unordered_map)** - Fast lookups for stops and routes
-- **Hash Set (unordered_set)** - Track visited nodes in DFS
-- **Vectors** - Dynamic arrays for paths and edges
-- **Stack (Call Stack)** - Recursive DFS implementation
+### 🏠 Dashboard — Plan Your Journey
+<img width="1364" height="723" alt="image" src="https://github.com/user-attachments/assets/fa68cc2e-e96e-487d-a74f-632c29600c5e" />
 
-## 🛠️ Technology Stack
+### ✅ Route Result
+<img width="1364" height="719" alt="image" src="https://github.com/user-attachments/assets/ca2805c0-3bf6-48d1-a891-dbc27f0652eb" />
 
-**Frontend:**
-- HTML5
-- CSS3 (Custom Design System)
-- Vanilla JavaScript (ES6+)
-- Leaflet.js (Maps)
-- Chart.js (Statistics)
+### 📊 Route Comparison Table
+<img width="1365" height="721" alt="image" src="https://github.com/user-attachments/assets/85c134d1-1886-4db6-a260-f7d8f8c5a4cf" />
 
-**Backend:**
-- C++ (C++11 or higher)
-- cpp-httplib library (HTTP server)
+### 🗺️ Interactive Network Map (Leaflet.js)
+<img width="1365" height="721" alt="image" src="https://github.com/user-attachments/assets/04b21bfe-23a2-482a-be54-5fc6c5f82056" />
 
-## 📋 Prerequisites
+### 🔗 All Connections — Adjacency List View
+<img width="1365" height="722" alt="image" src="https://github.com/user-attachments/assets/c784ddbc-d999-4327-95f0-03ba8ace445b" />
 
-### For Backend (C++)
-- C++ compiler (g++, clang++, or MSVC)
-- cpp-httplib library
+### 📈 Statistics & Chart
+<img width="1365" height="719" alt="image" src="https://github.com/user-attachments/assets/4816cc47-9775-4fb7-930c-1be403dce478" />
 
-### For Frontend
-- Any modern web browser (Chrome, Firefox, Safari, Edge)
-- No additional dependencies required
+### 🌙 Dark Mode
+<img width="1365" height="722" alt="image" src="https://github.com/user-attachments/assets/5016361c-c3e8-4197-8435-c53e52a2b9e1" />
 
-## 🔧 Installation & Setup
+### 📱 Mobile View
+![Mobile View](screenshots/mobile.png)
 
-### 1. Download cpp-httplib
+---
 
-```bash
-# Create a directory for the project
-mkdir SmartTransit
-cd SmartTransit
+## ✨ Features
 
-# Download cpp-httplib header file
-# Visit: https://github.com/yhirose/cpp-httplib
-# Download httplib.h and place it in your project directory
+### 🎯 Journey Planning
+- Select any start and end stop from the dropdown
+- **Swap button** to instantly reverse the journey direction
+- Three routing modes to choose from:
+  - **Shortest Distance** — Dijkstra's algorithm minimizing total kilometers
+  - **Lowest Fare** — Dijkstra's algorithm minimizing total cost (Rs.)
+  - **Any Available Route** — Depth-First Search for quick pathfinding
+- Results show the full stop-by-stop path, buses to board at each segment, total distance, fare, and number of stops
+
+### 📊 Route Comparison
+- Compare all three algorithms side-by-side for any origin-destination pair
+- Best values for distance, fare, and stops are highlighted in green
+
+### 🗺️ Interactive Map
+- Leaflet.js powered map with all 12 stops plotted
+- Network edges drawn as lines between connected stops
+- Click any marker for stop details and connection count
+
+### 🔗 Network Graph View
+- Full adjacency list displayed as cards
+- Each stop shows all direct connections with distance and fare
+
+### 📈 Statistics
+- Live count of stops, routes, buses, and average route distance
+- Bar chart visualization using Chart.js
+
+### ⭐ Saved & Recent Routes
+- Save favourite journeys with the "Save Route" button (persisted in `localStorage`)
+- Recent searches automatically tracked for quick re-use
+
+### 🌙 Dark / Light Mode
+- Toggle between themes from the sidebar, preference saved in `localStorage`
+
+### 📱 Fully Responsive
+| Breakpoint | Behaviour |
+|---|---|
+| > 1024px | Full sidebar + content |
+| ≤ 1024px | Sidebar collapses to icon-only |
+| ≤ 768px | Sidebar becomes off-canvas drawer via hamburger button |
+
+---
+
+## 🧠 Algorithms & Data Structures
+
+### Algorithms
+
+| Algorithm | Used For | Time Complexity | Space Complexity |
+|---|---|---|---|
+| **Dijkstra's (distance)** | Shortest distance path | O((V + E) log V) | O(V) |
+| **Dijkstra's (fare)** | Cheapest fare path | O((V + E) log V) | O(V) |
+| **Depth-First Search** | Any available path | O(V + E) | O(V) |
+
+### Data Structures
+
+| Structure | Where Used |
+|---|---|
+| **Graph — Adjacency List** (`unordered_map<string, vector<Edge>>`) | Core network representation |
+| **Priority Queue — Min-Heap** | Dijkstra's algorithm efficiency |
+| **Hash Map** (`unordered_map`) | Fast stop lookups and distance/fare tracking |
+| **Hash Set** (`unordered_set`) | Tracking visited nodes in DFS |
+| **Vectors** | Storing edges, stop names, and paths |
+| **Call Stack** | Recursive DFS implementation |
+
+![Algorithm Diagram](screenshots/algorithm-diagram.png)
+> 💡 *Add a flowchart here showing how Dijkstra's traverses your graph step by step*
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Backend** | C++ (C++11), cpp-httplib |
+| **Frontend** | HTML5, CSS3, Vanilla JavaScript (ES6+) |
+| **Maps** | Leaflet.js + OpenStreetMap |
+| **Charts** | Chart.js |
+| **Fonts** | Google Fonts — Inter |
+| **Persistence** | Browser `localStorage` |
+
+Zero npm packages. Zero build tools. Zero frameworks.
+
+---
+
+## 🗂️ Project Structure
+
+```
+SmartTransit/
+│
+├── index.html          # Complete frontend — UI, logic, built-in demo data
+├── server.cpp          # C++ backend server with Graph class and HTTP endpoints
+├── httplib.h           # Single-header HTTP library (download separately)
+│
+├── screenshots/        # 📸 Add your screenshots here (see list below)
+│   ├── banner.png
+│   ├── plan-journey.png
+│   ├── route-result.png
+│   ├── route-comparison.png
+│   ├── network-map.png
+│   ├── network-connections.png
+│   ├── statistics.png
+│   ├── dark-mode.png
+│   ├── mobile.png
+│   └── algorithm-diagram.png
+│
+└── README.md
 ```
 
-### 2. Compile the Backend
+### Backend — `server.cpp`
 
-**On Linux/Mac:**
+The C++ server contains a `Graph` class built on an adjacency list:
+
+```
+Graph
+├── adjacencyList   → unordered_map<string, vector<Edge>>
+├── stopNames       → vector<string>
+├── addStop()
+├── addRoute()          (bidirectional)
+├── findShortestPath()  → Dijkstra (distance weight)
+├── findCheapestPath()  → Dijkstra (fare weight)
+├── findAnyPath()       → DFS (recursive)
+├── getStatistics()
+├── searchStops()
+└── getAllBuses()
+```
+
+### Frontend — `index.html`
+
+The frontend runs in **Demo Mode** with all 12 stops and 19 routes built in as JavaScript objects — no server required to open and test it. When the C++ backend is running, it connects to `http://localhost:8080` for live data.
+
+---
+
+## 🔌 API Reference
+
+| Method | Endpoint | Params | Description |
+|--------|----------|--------|-------------|
+| GET | `/stops` | — | All bus stop names |
+| GET | `/graph` | — | Full adjacency list |
+| GET | `/route` | `from`, `to`, `algo` | Find route (`dijkstra` / `cheapest` / `dfs`) |
+| GET | `/statistics` | — | Stop, route, bus, distance stats |
+| GET | `/search` | `q` | Filter stops by name |
+| GET | `/buses` | — | All bus service names |
+| POST | `/addstop` | `name` | Add a new stop |
+| POST | `/addroute` | `from`, `to`, `distance`, `fare`, `bus` | Add a new route |
+| GET | `/health` | — | Server health check + timestamp |
+
+---
+
+## 🗺️ Pre-loaded Network
+
+### 12 Bus Stops
+
+| | | |
+|---|---|---|
+| 🏢 Central Station | 🛍️ City Mall | 🎓 University Campus |
+| 🏥 General Hospital | ✈️ International Airport | 🏖️ Seaside Beach |
+| 🌳 City Park | 🏟️ Sports Stadium | 💻 Tech Valley |
+| 🏛️ Old Town Square | 🏦 Financial District | 🚂 Railway Terminal |
+
+### 19 Bidirectional Routes (sample)
+
+| From | To | Distance | Fare | Bus |
+|---|---|---|---|---|
+| Central Station | City Mall | 2.5 km | Rs. 15 | Metro Express 1 |
+| Central Station | International Airport | 18.0 km | Rs. 60 | Airport Express |
+| Seaside Beach | International Airport | 4.5 km | Rs. 16 | Beach Shuttle 10 |
+| Tech Valley | Financial District | 4.3 km | Rs. 25 | Business Tech Link |
+| … | … | … | … | … |
+
+---
+
+## 🚀 Getting Started
+
+### Option A — Frontend Only (Demo Mode)
+
+No installation needed. Just open `index.html` in any modern browser. All 12 stops and 19 routes are built into the page.
+
+```bash
+# Just double-click index.html, or serve it with Python for best results:
+python -m http.server 8000
+# Then open: http://localhost:8000
+```
+
+### Option B — Full Stack (C++ Backend)
+
+#### 1. Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/SmartTransit.git
+cd SmartTransit
+```
+
+#### 2. Download cpp-httplib
+
+Visit [https://github.com/yhirose/cpp-httplib](https://github.com/yhirose/cpp-httplib), download `httplib.h` and place it in the project root next to `server.cpp`.
+
+#### 3. Compile
+
+**Linux / Mac:**
 ```bash
 g++ -std=c++11 -o server server.cpp -lpthread
 ```
 
-**On Windows (MinGW):**
+**Windows (MinGW):**
 ```bash
 g++ -std=c++11 -o server.exe server.cpp -lws2_32
 ```
 
-**On Windows (Visual Studio):**
+**Windows (Visual Studio):**
 ```bash
 cl /EHsc /std:c++11 server.cpp
 ```
 
-### 3. Run the Server
+#### 4. Run the Server
 
-**On Linux/Mac:**
+**Linux / Mac:**
 ```bash
 ./server
 ```
 
-**On Windows:**
+**Windows:**
 ```bash
 server.exe
 ```
 
-The server will start on `http://localhost:8080`
+You should see the startup banner in your terminal:
 
-### 4. Open the Frontend
+![Server Running](screenshots/server-running.png)
+> 💡 *Take a screenshot of your terminal showing the startup output and save it as `screenshots/server-running.png`*
 
-Simply open `index.html` in your web browser. The application will automatically connect to the backend server.
+The server starts on `http://localhost:8080`.
 
-## 🎯 Usage Guide
+#### 5. Open the Frontend
 
-### Planning a Journey
-
-1. **Select Starting Point** - Choose your origin from the dropdown
-2. **Select Destination** - Choose where you want to go
-3. **Choose Preference:**
-   - **Shortest Distance** - Minimize kilometers traveled
-   - **Lowest Fare** - Save money on your journey
-   - **Any Available Route** - Quick pathfinding
-4. **View Results** - See your route, buses, and statistics
-
-### Comparing Routes
-
-1. Navigate to "Compare Routes"
-2. Select origin and destination
-3. Click "Compare All Options"
-4. View side-by-side comparison of all algorithms
-
-### Managing the Network
-
-**Add a Stop:**
-1. Go to "Add Stop"
-2. Enter stop name
-3. Click "Add Stop to Network"
-
-**Add a Route:**
-1. Go to "Add Route"
-2. Select from and to stops
-3. Enter distance, fare, and bus number
-4. Click "Create Route"
-
-### Viewing Network
-
-- **Network Map** - Interactive visual representation
-- **All Connections** - Complete adjacency list
-- **Statistics** - Network metrics and analytics
-
-## 🏗️ Architecture
-
-### Backend Architecture
-```
-Graph Class
-├── adjacencyList (unordered_map<string, vector<Edge>>)
-├── stopNames (vector<string>)
-├── findShortestPath() - Dijkstra's Algorithm
-├── findCheapestPath() - Dijkstra's Algorithm (Fare)
-├── findAnyPath() - Depth-First Search
-└── Helper Methods (buildResultJSON, dfsRecursive)
-```
-
-### Algorithm Complexity
-
-**Dijkstra's Algorithm:**
-- Time Complexity: O((V + E) log V)
-- Space Complexity: O(V)
-- Best for: Shortest path in weighted graphs
-
-**Depth-First Search:**
-- Time Complexity: O(V + E)
-- Space Complexity: O(V)
-- Best for: Quick pathfinding
-
-## 📊 API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /stops | Get all bus stops |
-| GET | /graph | Get network graph |
-| GET | /route | Find route (params: from, to, algo) |
-| GET | /statistics | Get network statistics |
-| GET | /search | Search stops (param: q) |
-| GET | /buses | Get all bus lines |
-| POST | /addstop | Add new stop (param: name) |
-| POST | /addroute | Add new route (params: from, to, distance, fare, bus) |
-| GET | /health | Server health check |
-
-## 🎨 Design Features
-
-- **Modern UI/UX** - Clean, intuitive interface
-- **Responsive Design** - Mobile-first approach
-- **Dark Mode** - Eye-friendly dark theme
-- **Smooth Animations** - Polished user experience
-- **Accessibility** - WCAG compliant
-- **Performance** - Optimized for speed
-
-## 🔍 Sample Data
-
-The application comes pre-loaded with a comprehensive transit network:
-
-**12 Bus Stops:**
-- Central Station
-- City Mall
-- University Campus
-- General Hospital
-- International Airport
-- Seaside Beach
-- City Park
-- Sports Stadium
-- Tech Valley
-- Old Town Square
-- Financial District
-- Railway Terminal
-
-**19 Routes** covering the entire network with realistic distances and fares.
-
-## 🐛 Troubleshooting
-
-**Server won't start:**
-- Ensure port 8080 is not in use
-- Check if cpp-httplib is properly included
-- Verify compiler supports C++11
-
-**Frontend can't connect:**
-- Ensure server is running
-- Check browser console for CORS errors
-- Verify API_URL in index.html matches server address
-
-**Routes not found:**
-- Ensure both stops exist in the network
-- Check if there's a connection path between stops
-- Verify network data is loaded
-
-## 📈 Future Enhancements
-
-- Real-time bus tracking
-- Time-based routing
-- Multi-modal transport (bus + metro + walking)
-- User accounts and preferences
-- Route history analytics
-- Mobile app version
-- Integration with real transit APIs
-- Traffic-aware routing
-- Accessibility features (wheelchair accessible routes)
-
-## 👨‍💻 Development
-
-### Project Structure
-```
-SmartTransit/
-├── index.html          # Frontend application
-├── server.cpp          # Backend server
-├── httplib.h          # HTTP library
-└── README.md          # Documentation
-```
-
-### Code Style
-- C++: Follow Google C++ Style Guide
-- JavaScript: ES6+ with modern practices
-- CSS: BEM-like naming convention
-
-## 📝 License
-
-This project is created for educational purposes as a Final Year Project.
-
-## 👤 Author
-
-Created as a Data Structures and Algorithms Final Year Project
-
-## 🙏 Acknowledgments
-
-- cpp-httplib by Yuji Hirose
-- Leaflet.js for maps
-- Chart.js for statistics
-- OpenStreetMap contributors
-
-## 📞 Support
-
-For issues or questions, please check:
-1. Troubleshooting section above
-2. Browser console for error messages
-3. Server console for backend logs
+Open `index.html` in your browser. The status indicator in the sidebar will show the live connection.
 
 ---
 
-**Note:** This is an academic project demonstrating practical applications of graph algorithms and data structures in real-world transit planning scenarios.
+## 🎯 How to Use
+
+### Plan a Journey
+
+1. Open the **Plan Journey** tab (default)
+2. Select **Starting From** and **Going To** stops
+3. Use the ↕ button to swap stops instantly
+4. Click one of the three option cards:
+   - ⚡ **Shortest Distance** — fewest kilometers
+   - 💰 **Lowest Fare** — cheapest ticket price
+   - 🕐 **Any Available Route** — quick DFS path
+5. The result card shows your full route, buses to board, and trip stats
+
+### Compare Routes
+
+1. Click **Compare Routes** in the sidebar
+2. Select origin and destination
+3. Click **Compare All Options**
+4. The table shows all three algorithms side by side, with best values highlighted
+
+### Save & Revisit
+
+- Click **Save Route** on any result to bookmark it under **Saved Routes**
+- Your last 5 searches appear as **Recent Searches** for one-click re-use
+- Dark/Light mode preference is saved automatically
+
+---
+
+## 🐛 Troubleshooting
+
+| Problem | Solution |
+|---|---|
+| Server won't start | Check port 8080 isn't in use; verify `httplib.h` is present; confirm g++ supports C++11 (`g++ --version`) |
+| Frontend shows "Demo Mode" | The C++ server isn't running — this is normal, demo mode works without it |
+| Route not found | Check both stops exist; verify there is a connected path between them |
+| Map doesn't load | Check internet connection — Leaflet tiles load from OpenStreetMap CDN |
+| Compiler error on Windows | Use MinGW with `-lws2_32` flag; cpp-httplib requires Winsock |
+
+---
+
+## 📈 Possible Enhancements
+
+- [ ] Real-time bus tracking via GPS integration
+- [ ] Time-based routing (scheduled departures/arrivals)
+- [ ] Multi-modal transport (bus + metro + walking)
+- [ ] User accounts with route history
+- [ ] Bellman-Ford for negative-weight edge support
+- [ ] A\* heuristic for faster pathfinding on large networks
+- [ ] Mobile app wrapper (React Native / Flutter)
+- [ ] Wheelchair-accessible route filtering
+- [ ] Export route as PDF / share link
+
+---
+
+## 👤 Author
+
+Created as a **Data Structures & Algorithms Semester Project**
+
+---
+
+## 🙏 Acknowledgments
+
+- [cpp-httplib](https://github.com/yhirose/cpp-httplib) by Yuji Hirose — single-header C++ HTTP server
+- [Leaflet.js](https://leafletjs.com/) — interactive maps
+- [Chart.js](https://www.chartjs.org/) — network statistics charts
+- [OpenStreetMap](https://www.openstreetmap.org/) — map tile data
+- [Google Fonts — Inter](https://fonts.google.com/specimen/Inter) — UI typeface
+
+---
+
+## 📝 License
+
+This project is created for **educational purposes** as a semester project for a Data Structures & Algorithms course. Not intended for commercial use.
+
+---
+
+<p align="center">Made with ❤️ as a DSA Semester Project</p>
