@@ -30,7 +30,11 @@
 <img width="1365" height="722" alt="image" src="https://github.com/user-attachments/assets/5016361c-c3e8-4197-8435-c53e52a2b9e1" />
 
 ### 📱 Mobile View
-![IMG_20260220_141324 jpg](https://github.com/user-attachments/assets/e20cc482-0201-43c0-8799-4e924d9e9aee)
+![IMG_20260220_141420 jpg](https://github.com/user-attachments/assets/f7f1567f-c21e-4c20-8edf-e16eef97ded5)
+
+![IMG_20260220_141324 jpg](https://github.com/user-attachments/assets/c9718d5c-ae8c-4fed-87d8-332a813b090b)
+
+![IMG_20260220_141336 jpg](https://github.com/user-attachments/assets/2dda1f6d-f809-44b2-9ca9-3f7f05e8ee2a)
 
 ---
 
