@@ -30,7 +30,7 @@
 <img width="1365" height="722" alt="image" src="https://github.com/user-attachments/assets/5016361c-c3e8-4197-8435-c53e52a2b9e1" />
 
 ### 📱 Mobile View
-![Mobile View](screenshots/mobile.png)
+![IMG_20260220_141324 jpg](https://github.com/user-attachments/assets/e20cc482-0201-43c0-8799-4e924d9e9aee)
 
 ---
 
